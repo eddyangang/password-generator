@@ -14,11 +14,11 @@
 </head>
 
 <body>
-    <main class="container p-2 d-flex align-items-center bg-secondary flex-column shadow-lg rounded border border-primary">
+    <main class="container p-2 d-flex align-items-center bg-secondary flex-column shadow-lg rounded border border-dark text-white">
         <h1>Password Generator</h1>
-        <div class="p-2 bg-white w-100 rounded-pill"><h3 style="text-align: center;">Password</h3></div>
+        <div class="p-2 bg-light w-100 rounded-pill text-dark"><h3 style="text-align: center;" id="password">Password</h3></div>
 
-        <form class="">
+        <form class="font-weight-bold" id="form">
         <div class=" d-flex align-items-center m-2">
                 <label for="characterRange">Number of Characters</label>
                 <input type="range" class="custom-range" min="8" max="30" value="10" id="characterRange">
@@ -35,7 +35,7 @@
                 <label for="includeSymbols">Include Symbols</label>
                 <input type="checkbox" id="includeSymbols">
 
-                <button type="submit" class="btn btn-primary my-2">Generate</button>
+                <button type="submit" class="btn btn-primary my-2 shadow-sm">Generate Password</button>
             </div>
         </form>
     </main>
@@ -50,6 +50,8 @@
     </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+    </script>
+    <script src="assets/script.js">
     </script>
 </body>
 
