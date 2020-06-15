@@ -14,25 +14,29 @@
 </head>
 
 <body>
-    <main>
+    <main class="container p-2 d-flex align-items-center bg-secondary flex-column shadow-lg rounded border border-primary">
         <h1>Password Generator</h1>
-        <h3>Password</h3>
+        <div class="p-2 bg-white w-100 rounded-pill"><h3 style="text-align: center;">Password</h3></div>
 
-        <form>
-            <label for="characterRange">Number of Characters</label>
-            <input type="range" class="custom-range" min="8" max="30" value="10" id="characterRange">
-            <input type="number" min="8" max ="30" value="10" id="characterRangeNumber">
+        <form class="">
+        <div class=" d-flex align-items-center m-2">
+                <label for="characterRange">Number of Characters</label>
+                <input type="range" class="custom-range" min="8" max="30" value="10" id="characterRange">
+                <input type="number" min="8" max="30" value="10" id="characterRangeNumber">
+        </div>
 
-            <label for="includeUppercase">Include Uppercase</label>
-            <input type="checkbox" id="includeUppercase">
+            <div class="d-flex justify-content-center align-items-center flex-column">
+                <label for="includeUppercase">Include Uppercase</label>
+                <input type="checkbox" id="includeUppercase">
 
-            <label for="includeNumbers">Include Numbers</label>
-            <input type="checkbox" id="includeNumbers">
+                <label for="includeNumbers">Include Numbers</label>
+                <input type="checkbox" id="includeNumbers">
 
-            <label for="includeSymbols">Include Symbols</label>
-            <input type="checkbox" id="includeSymbols">
+                <label for="includeSymbols">Include Symbols</label>
+                <input type="checkbox" id="includeSymbols">
 
-            <button type="submit" class="btn btn-primary">Generate</button>
+                <button type="submit" class="btn btn-primary my-2">Generate</button>
+            </div>
         </form>
     </main>
 
