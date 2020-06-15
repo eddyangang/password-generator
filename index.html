@@ -9,21 +9,28 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
+    <script src="assets/script.js" defer></script>
     <title>Password Generator</title>
 </head>
 
 <body>
-    <main class="container p-2 d-flex align-items-center bg-secondary flex-column shadow-lg rounded border border-dark text-white">
+    <main
+        class="container p-2 d-flex align-items-center bg-secondary flex-column shadow-lg rounded border border-dark text-white">
         <h1>Password Generator</h1>
-        <div class="p-2 bg-light w-100 rounded-pill text-dark"><h3 style="text-align: center;" id="password">Password</h3></div>
+        <div class="p-2 bg-light w-100 rounded-pill text-dark d-flex justify-content-center">
+            <h3 style="text-align: center;" id="password" >Password</h3>
+            <!-- Trigger -->
+            <button class="btn " data-clipboard-target="#password" id="btncopy">
+                <i class=" far fa-clipboard"></i>
+            </button>
+        </div>
 
         <form class="font-weight-bold" id="form">
-        <div class=" d-flex align-items-center m-2">
+            <div class=" d-flex align-items-center m-2">
                 <label for="characterRange">Number of Characters</label>
                 <input type="range" class="custom-range" min="8" max="30" value="10" id="characterRange">
                 <input type="number" min="8" max="30" value="10" id="characterRangeNumber">
-        </div>
+            </div>
 
             <div class="d-flex justify-content-center align-items-center flex-column">
                 <label for="includeUppercase">Include Uppercase</label>
@@ -35,11 +42,11 @@
                 <label for="includeSymbols">Include Symbols</label>
                 <input type="checkbox" id="includeSymbols">
 
-                <button type="submit" class="btn btn-primary my-2 shadow-sm">Generate Password</button>
+                <button type="submit" class="btn btn-primary btn-lg btn-block my-2 shadow-sm " value="submit">Generate
+                    Password</button>
             </div>
         </form>
     </main>
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -51,8 +58,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
     </script>
-    <script src="assets/script.js">
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+    <script src="https://kit.fontawesome.com/d3d847e4a1.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

@@ -7,6 +7,9 @@ const includeSymbols = document.getElementById('includeSymbols');
 const form = document.getElementById('form');
 const password = document.getElementById('password');
 
+//
+var copy = new ClipboardJS('#btncopy');
+
 
 // Synce the range bar with number displayed
 characterRangeNumber.addEventListener('input', sync);
@@ -23,9 +26,7 @@ function sync(e) {
 const uppercase_char_code = arrayFromLowToHigh(65, 90);
 const lowercase_char_code = arrayFromLowToHigh(97, 122);
 const number_char_code = arrayFromLowToHigh(48, 57);
-const symbol_char_code = arrayFromLowToHigh(33, 47).concat(
-    arrayFromLowToHigh(58, 64)
-).concat(arrayFromLowToHigh(91, 96)).concat(arrayFromLowToHigh(123, 126));
+const symbol_char_code = arrayFromLowToHigh(33, 47).concat(arrayFromLowToHigh(58, 64)).concat(arrayFromLowToHigh(91, 96)).concat(arrayFromLowToHigh(123, 126));
 
 form.addEventListener('submit', e => {
     e.preventDefault()
