@@ -1,26 +1,28 @@
-// Define constants
-const characterRange = document.getElementById('characterRange');
-const characterRangeNumber = document.getElementById('characterRangeNumber');
-const includeUppercase = document.getElementById('includeUppercase');
-const includeNumbers = document.getElementById('includeNumbers');
-const includeSymbols = document.getElementById('includeSymbols');
-const form = document.getElementById('form');
-const password = document.getElementById('password');
+// Assignment Code
+var generateBtn = document.querySelector("#generate");
+var clipboard = new ClipboardJS("#copy");
 
-//
-var copy = new ClipboardJS('#btncopy');
+// Write password to the #password input
+function writePassword() {
+    var characterAmount = prompt("How many character would you like (8-128)?");
+    if (characterAmount < 8) {
+        alert("You need at least 8 characters in your password");
+    } else if (characterAmount > 128) {
+        alert("Too many characters. Cannot exceed 128 characters");
+    } else {
+        var includeUppercase = confirm("Would you like Uppercase letters?");
+        var includeLowercase = confirm("Would you like Lowercase letters?");
+        var includeNumbers = confirm("Would you like Numbers?");
+        var includeSymbols = confirm("Would you like Symbols?");
+        var password = generatePassword(characterAmount, includeUppercase, includeLowercase, includeNumbers, includeSymbols);
+    }
 
-
-// Synce the range bar with number displayed
-characterRangeNumber.addEventListener('input', sync);
-characterRange.addEventListener('input', sync);
-
-function sync(e) {
-    let value = e.target.value;
-    characterRangeNumber.value = value;
-    characterRange.value = value;
+    var passwordText = document.querySelector("#password");
+    passwordText.value = password;
 }
 
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
 
 // Using ASCII table to turn random numbers to characters
 const uppercase_char_code = arrayFromLowToHigh(65, 90);
@@ -28,22 +30,13 @@ const lowercase_char_code = arrayFromLowToHigh(97, 122);
 const number_char_code = arrayFromLowToHigh(48, 57);
 const symbol_char_code = arrayFromLowToHigh(33, 47).concat(arrayFromLowToHigh(58, 64)).concat(arrayFromLowToHigh(91, 96)).concat(arrayFromLowToHigh(123, 126));
 
-form.addEventListener('submit', e => {
-    e.preventDefault()
-    const characterAmount = characterRangeNumber.value;
-    const addUppercase = includeUppercase.checked;
-    const addNumbers = includeNumbers.checked;
-    const addSymbols = includeSymbols.checked;
-    const newpassword = generatePassword(characterAmount, addUppercase, addNumbers, addSymbols);
-    password.innerText = newpassword;
-});
 
-function generatePassword(characterAmount, addUppercase, addNumbers, addSymbols) {
-
-    let charCodes = lowercase_char_code;
-    if (addUppercase) charCodes = charCodes.concat(uppercase_char_code);
-    if (addSymbols) charCodes = charCodes.concat(symbol_char_code);
-    if (addNumbers) charCodes = charCodes.concat(number_char_code);
+function generatePassword(characterAmount, includeUppercase, includeLowercase, includeNumbers, includeSymbols) {
+    let charCodes = [];
+    if (includeLowercase) charCodes = charCodes.concat(lowercase_char_code);
+    if (includeUppercase) charCodes = charCodes.concat(uppercase_char_code);
+    if (includeNumbers) charCodes = charCodes.concat(number_char_code);
+    if (includeSymbols) charCodes = charCodes.concat(symbol_char_code);
 
     const passwordCharacters = [];
     for (let i = 0; i < characterAmount; i++) {
@@ -54,9 +47,9 @@ function generatePassword(characterAmount, addUppercase, addNumbers, addSymbols)
 }
 
 function arrayFromLowToHigh(low, high) {
-    const array = []
+    const array = [];
     for (let i = low; i <= high; i++) {
-        array.push(i)
+        array.push(i);
     }
     return array
 }
